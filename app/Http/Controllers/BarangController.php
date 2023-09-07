@@ -78,12 +78,12 @@ class BarangController extends Controller
 
         try {
             $barang = new Barang;
-            $barang->type = $request->type;
+            $barang->nama_barang= $request->nama_barang;
             $barang->tahun = $request->tahun;
             $barang->jumlah = $request->jumlah;
 
-            $namabarang = $request->nama_barang . ' ' . $request->tahun; // Combine year and type
-            $barang->nama_barang = $namabarang;
+            $namabarang = $request->type . ' ' . $request->tahun; // Combine year and type
+            $barang->type = $namabarang;
 
             if ($request->hasFile('gambar')) {
                 $gambarFile = $request->file('gambar');

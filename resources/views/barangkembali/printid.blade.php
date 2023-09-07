@@ -19,15 +19,21 @@
         table th {
             background-color: #f2f2f2;
         }
+        .break-words {
+            word-wrap: break-word;
+            max-width: 700px;
+        }
     </style>
 </head>
 <body>
-    <h1>Data Barang Kembali</h1>
-    <strong>Tanggal Kembali:</strong> {{ $barangkembali->created_at->format('Y-m-d') }}</br>
-    <strong>Nama Barang:</strong> {{ $barangkembali->barang->nama_barang }}</br>
-    <strong>Jumlah Kembali:</strong> {{ $barangkembali->jumlahkembali }}</br>
-    <strong>Status:</strong> {{ $barangkembali->status }}</br>
-    <strong>Keterangan:</strong> {{ $barangkembali->keterangan }}</br>
+    <div class="break-words">
+        <h1>Data Barang Kembali</h1>
+        <strong>Tanggal Kembali:</strong> {{ $barangkembali->created_at->format('Y-m-d') }}</br>
+        <strong>Nama Barang:</strong> {{ $barangkembali->barang->nama_barang }}</br>
+        <strong>Jumlah Kembali:</strong> {{ $barangkembali->jumlahkembali }}</br>
+        <strong>Status:</strong> {{ $barangkembali->status }}</br>
+        <strong>Keterangan:</strong> {{ $barangkembali->keterangan }}</br>
+    </div>
 
     <h2>Daftar Kode Barang Kembali</h2>
     <table>

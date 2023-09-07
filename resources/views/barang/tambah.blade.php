@@ -19,7 +19,7 @@
                                 type="text" name="nama_barang_id" required autofocus>
                                 <option value="" disabled selected>Pilih Barang</option>
                                 @foreach($barang as $barang)
-                                    <option value="{{ $barang->id }}">{{ $barang->nama_barang }}</option>
+                                    <option value="{{ $barang->id }}">{{ $barang->type }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->get('nama_barang_id'))

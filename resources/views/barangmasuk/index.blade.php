@@ -116,7 +116,7 @@
                             <x-table-column>{{$item->jumlahmasuk}}</x-table-column>
                             <x-table-column>
                                 <div class="flex justify-between">
-                                    <a  class="fa-solid fa-eye max-h-12 items-center p-4 bg-orange-400 border 
+                                    <a  class="fa-solid fa-eye max-h-12 items-center p-4 mr-2 bg-orange-400 border 
                                             border-transparent rounded-md hover:bg-gray-700 active:bg-gray-900 
                                             focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 
                                             disabled:opacity-25 transition ease-in-out duration-150 text-white"
@@ -132,21 +132,23 @@
                             </x-table-column>
                             @if(\Auth::user()->role !== 'atasan')
                             <x-table-column>
-                                <a href="{{ route('barangmasuk.printid', $item->id) }}" 
-                                target="_blank"
-                                class="fas fa-print inline-flex items-center p-4 bg-blue-400 border 
-                                        border-transparent rounded-md hover:bg-gray-700 active:bg-gray-900 
-                                        focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 
-                                        disabled:opacity-25 transition ease-in-out duration-150 text-white">
-                                </a>
+                                <div class="flex justify-between">  
+                                    <a href="{{ route('barangmasuk.printid', $item->id) }}" 
+                                    target="_blank"
+                                    class="fas fa-print inline-flex items-center p-4 mr-2 bg-blue-400 border 
+                                            border-transparent rounded-md hover:bg-gray-700 active:bg-gray-900 
+                                            focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 
+                                            disabled:opacity-25 transition ease-in-out duration-150 text-white">
+                                    </a>
 
-                                <button type="button" 
-                                    class="fas fa-trash inline-flex items-center p-4 bg-red-400 border 
-                                        border-transparent rounded-md hover:bg-gray-700 active:bg-gray-900 
-                                        focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 
-                                        disabled:opacity-25 transition ease-in-out duration-150 text-white"
-                                    onclick="toggleModal('hapus_barangmasuk{{$item->id}}')">
-                                </button>
+                                    <button type="button" 
+                                        class="fas fa-trash inline-flex items-center p-4 bg-red-400 border 
+                                            border-transparent rounded-md hover:bg-gray-700 active:bg-gray-900 
+                                            focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 
+                                            disabled:opacity-25 transition ease-in-out duration-150 text-white"
+                                        onclick="toggleModal('hapus_barangmasuk{{$item->id}}')">
+                                    </button>
+                                </div>
 
                                 <x-modals id="hapus_barangmasuk{{$item->id}}" title="Konfirmasi Hapus Histori Barang Masuk" form="true">
                                     <form action="{{route('barangmasuk.destroy',$item->id)}}" method="POST" class="inline-flex">

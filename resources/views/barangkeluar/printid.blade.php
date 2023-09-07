@@ -26,21 +26,25 @@
         .clear {
             clear: both;
         }
+        .break-words {
+            word-wrap: break-word;
+            max-width: 700px;
+        }
     </style>
 </head>
 <body>
     <h1>Data Barang Keluar</h1>
-    <div class="column">
-        <strong>Tanggal Keluar :</strong> {{ $barangkeluar->created_at->format('Y-m-d') }}<br>
-        <strong>Nama Pengambil :</strong> {{ $barangkeluar->nama }}<br>
-        <strong>Jabatan :</strong> {{ $barangkeluar->jabatan }}<br>
-        <strong>Nomor HP :</strong> {{ $barangkeluar->hp }}<br>
-    </div>
-    <div class="column">
+    <div class="column break-words">
         <strong>Nama Barang :</strong> {{ $barangkeluar->barang->nama_barang }}<br>
         <strong>Jumlah keluar :</strong> {{ $barangkeluar->jumlahkeluar }}<br>
         <strong>Tipe :</strong> {{ $barangkeluar->barang->type }}<br>
         <strong>Keterangan :</strong> {{ $barangkeluar->keterangan }}<br>
+    </div>
+    <div class="column break-words">
+        <strong>Tanggal Keluar :</strong> {{ $barangkeluar->created_at->format('Y-m-d') }}<br>
+        <strong>Nama Pengambil :</strong> {{ $barangkeluar->nama }}<br>
+        <strong>Jabatan :</strong> {{ $barangkeluar->jabatan }}<br>
+        <strong>Nomor HP :</strong> {{ $barangkeluar->hp }}<br>
     </div>
     <div class="clear"></div>
     

@@ -22,29 +22,27 @@
 </head>
 <body>
     <h1>Laporan Barang Kembali</h1>
-    <table>
-        <thead>
+    <x-table id="tabel_barang">
+        <x-slot name="header">
             <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Barang</th>
-                <th>Jumlah Kembali</th>
-                <th>Status</th>
-                <th>Keterangan</th>
+                <x-table-column>No</x-table-column>
+                <x-table-column>Tanggal</x-table-column>
+                <x-table-column>Barang</x-table-column>
+                <x-table-column>Jumlah Kembali</x-table-column>
+                <x-table-column>Status</x-table-column>
+                <x-table-column>Keterangan</x-table-column>
             </tr>
-        </thead>
-        <tbody>
-            @foreach ($barangkembali as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->created_at->format('Y-m-d') }}</td>
-                    <td>{{ $item->barang->nama_barang }}</td>
-                    <td>{{ $item->jumlahkembali }}</td>
-                    <td>{{ $item->status }}</td>
-                    <td>{{ $item->keterangan }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        </x-slot>
+        @foreach ($barangkembali as $item)
+            <tr>
+                <x-table-column>{{ $loop->iteration }}</x-table-column>
+                <x-table-column>{{ $item->created_at->format('Y-m-d') }}</x-table-column>
+                <x-table-column>{{ $item->barang->nama_barang }}</x-table-column>
+                <x-table-column>{{ $item->jumlahkembali }}</x-table-column>
+                <x-table-column>{{ $item->status }}</x-table-column>
+                <x-table-column>{{ $item->keterangan }}</x-table-column>
+            </tr>
+        @endforeach
+    </x-table>
 </body>
 </html>
